@@ -18,6 +18,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    //set the background image
+    [self.gameBackGroundImageView setImage:[UIImage imageNamed:@"PirateStart.jpg"]];
+    self.healthLabel.text = @"The Health Label";
+    self.damageLabel.text = @"The Damage Label";
+    self.weaponLabel.text = @"The Weapon Label";
+    self.armorLabel.text = @"The Armor Label";
 }
 
 - (void)didReceiveMemoryWarning

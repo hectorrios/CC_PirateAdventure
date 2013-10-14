@@ -10,4 +10,11 @@
 
 @interface PAViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *gameBackGroundImageView;
+@property (strong, nonatomic) IBOutlet UILabel *healthLabel;
+@property (strong, nonatomic) IBOutlet UILabel *damageLabel;
+@property (strong, nonatomic) IBOutlet UILabel *weaponLabel;
+@property (strong, nonatomic) IBOutlet UILabel *armorLabel;
+
+
 @end

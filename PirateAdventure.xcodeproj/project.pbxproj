@@ -33,6 +33,8 @@
 		EA76A417180A9A94002E6ECD /* PirateTreasure.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EA76A40B180A9A94002E6ECD /* PirateTreasure.jpeg */; };
 		EA76A418180A9A94002E6ECD /* PirateTreasurer2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EA76A40C180A9A94002E6ECD /* PirateTreasurer2.jpeg */; };
 		EA76A419180A9A94002E6ECD /* PirateWeapons.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EA76A40D180A9A94002E6ECD /* PirateWeapons.jpeg */; };
+		EA76A41C180B4B1D002E6ECD /* PATileFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EA76A41B180B4B1D002E6ECD /* PATileFactory.m */; };
+		EA76A422180B4CAF002E6ECD /* PATile.m in Sources */ = {isa = PBXBuildFile; fileRef = EA76A421180B4CAF002E6ECD /* PATile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,10 @@
 		EA76A40B180A9A94002E6ECD /* PirateTreasure.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateTreasure.jpeg; sourceTree = "<group>"; };
 		EA76A40C180A9A94002E6ECD /* PirateTreasurer2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateTreasurer2.jpeg; sourceTree = "<group>"; };
 		EA76A40D180A9A94002E6ECD /* PirateWeapons.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateWeapons.jpeg; sourceTree = "<group>"; };
+		EA76A41A180B4B1D002E6ECD /* PATileFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PATileFactory.h; path = Model/Factory/PATileFactory.h; sourceTree = "<group>"; };
+		EA76A41B180B4B1D002E6ECD /* PATileFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PATileFactory.m; path = Model/Factory/PATileFactory.m; sourceTree = "<group>"; };
+		EA76A420180B4CAF002E6ECD /* PATile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PATile.h; path = Model/PATile.h; sourceTree = "<group>"; };
+		EA76A421180B4CAF002E6ECD /* PATile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PATile.m; path = Model/PATile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 				EA76A3E2180A99DC002E6ECD /* PAViewController.h */,
 				EA76A3E3180A99DC002E6ECD /* PAViewController.m */,
 				EA76A3E5180A99DC002E6ECD /* Images.xcassets */,
+				EA76A41D180B4BAB002E6ECD /* Model */,
 				EA76A3D4180A99DC002E6ECD /* Supporting Files */,
 			);
 			path = PirateAdventure;
@@ -186,6 +193,25 @@
 				EA76A3F5180A99DC002E6ECD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA76A41D180B4BAB002E6ECD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA76A41F180B4C0F002E6ECD /* Factory */,
+				EA76A420180B4CAF002E6ECD /* PATile.h */,
+				EA76A421180B4CAF002E6ECD /* PATile.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EA76A41F180B4C0F002E6ECD /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				EA76A41A180B4B1D002E6ECD /* PATileFactory.h */,
+				EA76A41B180B4B1D002E6ECD /* PATileFactory.m */,
+			);
+			name = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +325,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA76A3DA180A99DC002E6ECD /* main.m in Sources */,
+				EA76A41C180B4B1D002E6ECD /* PATileFactory.m in Sources */,
+				EA76A422180B4CAF002E6ECD /* PATile.m in Sources */,
 				EA76A3E4180A99DC002E6ECD /* PAViewController.m in Sources */,
 				EA76A3DE180A99DC002E6ECD /* PAAppDelegate.m in Sources */,
 			);
