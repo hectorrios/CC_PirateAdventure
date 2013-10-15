@@ -87,7 +87,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naw-vL-y1F">
-                                        <rect key="frame" x="20" y="54" width="70" height="30"/>
+                                        <rect key="frame" x="20" y="54" width="135" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Test">
@@ -129,6 +129,9 @@
                                 <state key="normal" title="N">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="moveNorth:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vqM-Yb-Kx9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcQ-Re-gnx">
                                 <rect key="frame" x="252" y="495" width="30" height="30"/>
@@ -137,6 +140,9 @@
                                 <state key="normal" title="E">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="moveEast:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Alw-8w-XRY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6f-kh-RVZ">
                                 <rect key="frame" x="173" y="495" width="30" height="30"/>
@@ -145,6 +151,9 @@
                                 <state key="normal" title="W">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="moveWest:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZXG-Ii-i67"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0S-x5-yR3">
                                 <rect key="frame" x="212" y="524" width="30" height="30"/>
@@ -153,6 +162,9 @@
                                 <state key="normal" title="S">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="moveSouth:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7as-WP-F4e"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVe-kn-SLv">
                                 <rect key="frame" x="20" y="524" width="96" height="30"/>
@@ -166,10 +178,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="Naw-vL-y1F" id="pM6-o0-qc9"/>
                         <outlet property="armorLabel" destination="vXR-Ma-xsE" id="9cj-lp-tD2"/>
                         <outlet property="damageLabel" destination="WuW-51-kUe" id="A4g-7A-Gds"/>
                         <outlet property="gameBackGroundImageView" destination="coM-IG-OUO" id="Atd-5E-Hcf"/>
                         <outlet property="healthLabel" destination="HM7-LC-8Wn" id="WME-x5-RhI"/>
+                        <outlet property="moveEastButton" destination="EcQ-Re-gnx" id="XZA-TI-gXh"/>
+                        <outlet property="moveNorthButton" destination="ZHP-s4-ywB" id="zB5-3C-Val"/>
+                        <outlet property="moveSouthButton" destination="F0S-x5-yR3" id="Imu-Qf-PdT"/>
+                        <outlet property="moveWestButton" destination="a6f-kh-RVZ" id="8LS-5D-SdF"/>
+                        <outlet property="storyLabel" destination="4Ph-sv-9gO" id="2PK-l6-wUd"/>
                         <outlet property="weaponLabel" destination="6z6-ve-qBv" id="7QL-4Z-Dpc"/>
                     </connections>
                 </viewController>

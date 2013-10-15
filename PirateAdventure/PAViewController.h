@@ -15,6 +15,18 @@
 @property (strong, nonatomic) IBOutlet UILabel *damageLabel;
 @property (strong, nonatomic) IBOutlet UILabel *weaponLabel;
 @property (strong, nonatomic) IBOutlet UILabel *armorLabel;
+@property (strong, nonatomic) IBOutlet UILabel *storyLabel;
+@property (strong, nonatomic) IBOutlet UIButton *actionButton;
+@property (strong, nonatomic) IBOutlet UIButton *moveNorthButton;
+@property (strong, nonatomic) IBOutlet UIButton *moveSouthButton;
+@property (strong, nonatomic) IBOutlet UIButton *moveEastButton;
+@property (strong, nonatomic) IBOutlet UIButton *moveWestButton;
 
+@property (nonatomic) CGPoint currentPosition;
+
+- (IBAction)moveNorth:(UIButton *)sender;
+- (IBAction)moveSouth:(UIButton *)sender;
+- (IBAction)moveEast:(UIButton *)sender;
+- (IBAction)moveWest:(UIButton *)sender;
 
 @end

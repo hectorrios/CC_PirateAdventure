@@ -57,7 +57,7 @@
     [self configureTile:[colFour objectAtIndex:1] WithStory:message
          AndImageString:@"PirateShipBattle.jpeg" AndActionName:@"Do something"];
     [self configureTile:[colFour objectAtIndex:2] WithStory:message
-         AndImageString:@"PirateTreasure2.jpeg" AndActionName:@"Do something"];
+         AndImageString:@"PirateTreasurer2.jpeg" AndActionName:@"Do something"];
     
     NSArray *allTiles = [[NSArray alloc] initWithObjects:colOne, colTwo, colThree, colFour, nil];
     
