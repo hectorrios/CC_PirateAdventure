@@ -35,6 +35,10 @@
 		EA76A419180A9A94002E6ECD /* PirateWeapons.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EA76A40D180A9A94002E6ECD /* PirateWeapons.jpeg */; };
 		EA76A41C180B4B1D002E6ECD /* PATileFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EA76A41B180B4B1D002E6ECD /* PATileFactory.m */; };
 		EA76A422180B4CAF002E6ECD /* PATile.m in Sources */ = {isa = PBXBuildFile; fileRef = EA76A421180B4CAF002E6ECD /* PATile.m */; };
+		EABDEFFD180DF226001FC792 /* PAWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = EABDEFFC180DF226001FC792 /* PAWeapon.m */; };
+		EABDF000180DF256001FC792 /* PAArmor.m in Sources */ = {isa = PBXBuildFile; fileRef = EABDEFFF180DF256001FC792 /* PAArmor.m */; };
+		EABDF003180DF30D001FC792 /* PACharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = EABDF002180DF30D001FC792 /* PACharacter.m */; };
+		EABDF006180E97D7001FC792 /* PABoss.m in Sources */ = {isa = PBXBuildFile; fileRef = EABDF005180E97D7001FC792 /* PABoss.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +87,14 @@
 		EA76A41B180B4B1D002E6ECD /* PATileFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PATileFactory.m; path = Model/Factory/PATileFactory.m; sourceTree = "<group>"; };
 		EA76A420180B4CAF002E6ECD /* PATile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PATile.h; path = Model/PATile.h; sourceTree = "<group>"; };
 		EA76A421180B4CAF002E6ECD /* PATile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PATile.m; path = Model/PATile.m; sourceTree = "<group>"; };
+		EABDEFFB180DF226001FC792 /* PAWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PAWeapon.h; path = Model/PAWeapon.h; sourceTree = "<group>"; };
+		EABDEFFC180DF226001FC792 /* PAWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAWeapon.m; path = Model/PAWeapon.m; sourceTree = "<group>"; };
+		EABDEFFE180DF256001FC792 /* PAArmor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PAArmor.h; path = Model/PAArmor.h; sourceTree = "<group>"; };
+		EABDEFFF180DF256001FC792 /* PAArmor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAArmor.m; path = Model/PAArmor.m; sourceTree = "<group>"; };
+		EABDF001180DF30D001FC792 /* PACharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PACharacter.h; path = Model/PACharacter.h; sourceTree = "<group>"; };
+		EABDF002180DF30D001FC792 /* PACharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PACharacter.m; path = Model/PACharacter.m; sourceTree = "<group>"; };
+		EABDF004180E97D7001FC792 /* PABoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PABoss.h; path = Model/PABoss.h; sourceTree = "<group>"; };
+		EABDF005180E97D7001FC792 /* PABoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PABoss.m; path = Model/PABoss.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +211,14 @@
 			isa = PBXGroup;
 			children = (
 				EA76A41F180B4C0F002E6ECD /* Factory */,
+				EABDF004180E97D7001FC792 /* PABoss.h */,
+				EABDF005180E97D7001FC792 /* PABoss.m */,
+				EABDEFFB180DF226001FC792 /* PAWeapon.h */,
+				EABDEFFE180DF256001FC792 /* PAArmor.h */,
+				EABDEFFF180DF256001FC792 /* PAArmor.m */,
+				EABDF001180DF30D001FC792 /* PACharacter.h */,
+				EABDF002180DF30D001FC792 /* PACharacter.m */,
+				EABDEFFC180DF226001FC792 /* PAWeapon.m */,
 				EA76A420180B4CAF002E6ECD /* PATile.h */,
 				EA76A421180B4CAF002E6ECD /* PATile.m */,
 			);
@@ -324,11 +344,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EABDEFFD180DF226001FC792 /* PAWeapon.m in Sources */,
+				EABDF000180DF256001FC792 /* PAArmor.m in Sources */,
 				EA76A3DA180A99DC002E6ECD /* main.m in Sources */,
 				EA76A41C180B4B1D002E6ECD /* PATileFactory.m in Sources */,
 				EA76A422180B4CAF002E6ECD /* PATile.m in Sources */,
 				EA76A3E4180A99DC002E6ECD /* PAViewController.m in Sources */,
+				EABDF003180DF30D001FC792 /* PACharacter.m in Sources */,
 				EA76A3DE180A99DC002E6ECD /* PAAppDelegate.m in Sources */,
+				EABDF006180E97D7001FC792 /* PABoss.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +561,7 @@
 				EA76A3FE180A99DC002E6ECD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA76A3FF180A99DC002E6ECD /* Build configuration list for PBXNativeTarget "PirateAdventureTests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +570,7 @@
 				EA76A401180A99DC002E6ECD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

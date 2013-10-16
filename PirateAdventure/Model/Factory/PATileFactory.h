@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PACharacter.h"
+#import "PABoss.h"
 
 @interface PATileFactory : NSObject
 
 -(NSArray *) tiles;
+
+-(PACharacter *)character;
+
+-(PABoss *) boss;
 
 @end

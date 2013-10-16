@@ -26,17 +26,7 @@
     self.weaponLabel.text = @"The Weapon Label";
     self.armorLabel.text = @"The Armor Label";
     
-    //Define the initial position
-    self.currentPosition = CGPointMake(0, 0);
-    
-    PATileFactory *tileFactory = [[PATileFactory alloc] init];
-    
-    //grab the tiles
-    self.tiles = [tileFactory tiles];
-    
-    //set up the starting tile and 
-    [self doMove];
-    
+    [self resetGame];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,12 +65,92 @@
     [self doMove];
 }
 
+- (IBAction)actionButtonPressed:(UIButton *)sender {
+    //Grab current Tile
+    PATile *currentTile = [[self.tiles objectAtIndex:self.currentPosition.x] objectAtIndex:self.currentPosition.y];
+    
+    if (currentTile.armor != nil) {
+        self.character.health = self.character.health - self.character.armor.health + currentTile.armor.health;
+        self.character.armor = currentTile.armor;
+    } else if (currentTile.weapon != nil) {
+        self.character.damage = self.character.damage - self.character.weapon.damage +currentTile.weapon.damage;
+        self.character.weapon = currentTile.weapon;
+    } else if (currentTile.healthEffect != 0) {
+        self.character.health = self.character.health + currentTile.healthEffect;
+    } else if ([[sender titleForState:UIControlStateNormal]  isEqual: @"Fight"]) {
+        /*
+        Flip a coin. If even then we apply damage to the Boss. If tails then we get the smack down
+         0: heads
+         1: tails
+        */
+        int tossResult = arc4random() % 2;
+        if (tossResult == 0) {
+            //Work the Boss over
+            self.boss.health = self.boss.health - self.character.damage;
+        } else {
+            //We have to take our lumps from the boss
+            self.character.health = self.character.health - self.boss.damage;
+        }
+    }
+    
+    [self updateCharacterUI];
+    
+    if (self.character.health <= 0) {
+        //lock out the UI. Only allow reset of game
+        [self lockTheUIDown];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Death" message:@"You have died. Reset to play again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+    
+    if (self.boss.health <= 0) {
+        //lock out UI
+        [self lockTheUIDown];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Victory" message:@"You won! Reset to play again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+- (IBAction)resetGameButtonPressed:(id)sender {
+    
+    //reset the Game classes
+    [self resetGame];
+    
+    //enable Action button
+    self.actionButton.enabled = YES;
+    
+    //enable the navigation buttons
+    self.moveEastButton.enabled = YES;
+    self.moveNorthButton.enabled = YES;
+    self.moveSouthButton.enabled = YES;
+    self.moveWestButton.enabled = YES;
+}
+
 #pragma mark -- Private methods
 -(void) updateUIForTile:(PATile *)tile {
     self.storyLabel.text = tile.story;
     [self.actionButton setTitle:tile.actionButtonName forState:UIControlStateNormal];
     self.gameBackGroundImageView.image = tile.backgroundImage;
 }
+
+-(void)updateCharacterUI {
+    self.healthLabel.text = [NSString stringWithFormat:@"%i", self.character.health];
+    self.weaponLabel.text = self.character.weapon.name;
+    self.damageLabel.text = [NSString stringWithFormat:@"%i", self.character.damage];
+    self.armorLabel.text = self.character.armor.name;
+}
+
+-(void)lockTheUIDown {
+    
+    //disable Action button
+    self.actionButton.enabled = NO;
+    
+    //disable the navigation buttons
+    self.moveEastButton.enabled = NO;
+    self.moveNorthButton.enabled = NO;
+    self.moveSouthButton.enabled = NO;
+    self.moveWestButton.enabled = NO;
+}
+
 
 -(void) calculateButtonVisibility {
     //Check the vertical buttons (North and South)
@@ -119,4 +189,27 @@
     PATile *currentTile = [[self.tiles objectAtIndex:self.currentPosition.x] objectAtIndex:self.currentPosition.y];
     [self updateUIForTile:currentTile];
 }
+
+-(void)resetGame {
+    
+    //Define the initial position
+    self.currentPosition = CGPointMake(0, 0);
+    
+    PATileFactory *tileFactory = [[PATileFactory alloc] init];
+    
+    //grab the tiles
+    self.tiles = [tileFactory tiles];
+    
+    //set up the starting tile and
+    [self doMove];
+    
+    //init the character
+    self.character = [tileFactory character];
+    
+    //update the UI with the character info
+    [self updateCharacterUI];
+    
+    self.boss = [tileFactory boss];
+}
+
 @end

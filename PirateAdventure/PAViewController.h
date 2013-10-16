@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PACharacter.h"
+#import "PABoss.h"
 
 @interface PAViewController : UIViewController
 
@@ -23,10 +25,14 @@
 @property (strong, nonatomic) IBOutlet UIButton *moveWestButton;
 
 @property (nonatomic) CGPoint currentPosition;
+@property (nonatomic, strong) PACharacter *character;
+@property (nonatomic, strong) PABoss *boss;
 
 - (IBAction)moveNorth:(UIButton *)sender;
 - (IBAction)moveSouth:(UIButton *)sender;
 - (IBAction)moveEast:(UIButton *)sender;
 - (IBAction)moveWest:(UIButton *)sender;
+- (IBAction)actionButtonPressed:(UIButton *)sender;
+- (IBAction)resetGameButtonPressed:(id)sender;
 
 @end
