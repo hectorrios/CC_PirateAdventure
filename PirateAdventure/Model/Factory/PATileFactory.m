@@ -145,14 +145,10 @@
     /*
      Configure the Pirate Treasure 2 Tile
      */
-    PAArmor *share = [[PAArmor alloc] init];
-    share.name = @"Share the treasure";
-    share.health = 0;
-    
     [self configureTile:[colFour objectAtIndex:2]
               WithStory:@"Cap'n loves treasure. Time to mobilize the crew and bring that haul on board. Time to pay it forward and share the loot with the crew."
          AndImageString:@"PirateTreasurer2.jpeg" AndActionName:@"Share the treasure."
-              AndWeapon:nil AndArmor:share OrHealthEffect:0];
+              AndWeapon:nil AndArmor:nil OrHealthEffect:30];
     
     NSArray *allTiles = [[NSArray alloc] initWithObjects:colOne, colTwo, colThree, colFour, nil];
     
