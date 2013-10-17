@@ -12,6 +12,7 @@
 
 @interface PAViewController ()
 @property (nonatomic, strong) NSArray *tiles;
+@property (nonatomic, strong) PATileFactory *factory;
 @end
 
 @implementation PAViewController
@@ -21,10 +22,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.healthLabel.text = @"The Health Label";
-    self.damageLabel.text = @"The Damage Label";
-    self.weaponLabel.text = @"The Weapon Label";
-    self.armorLabel.text = @"The Armor Label";
+    self.factory = [[PATileFactory alloc] init];
+    
+    //grab the tiles
+    self.tiles = [self.factory tiles];
     
     [self resetGame];
 }
@@ -195,21 +196,21 @@
     //Define the initial position
     self.currentPosition = CGPointMake(0, 0);
     
-    PATileFactory *tileFactory = [[PATileFactory alloc] init];
-    
-    //grab the tiles
-    self.tiles = [tileFactory tiles];
-    
     //set up the starting tile and
     [self doMove];
     
     //init the character
-    self.character = [tileFactory character];
+    self.character = nil;
+    self.character = [self.factory character];
+    
+    //init the character
+    self.boss = nil;
+    self.boss = [self.factory boss];
     
     //update the UI with the character info
     [self updateCharacterUI];
     
-    self.boss = [tileFactory boss];
+    
 }
 
 @end
