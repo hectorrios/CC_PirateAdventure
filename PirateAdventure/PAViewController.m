@@ -80,7 +80,7 @@
         self.character.health = self.character.health + currentTile.healthEffect;
     } else if ([[sender titleForState:UIControlStateNormal]  isEqual: @"Fight"]) {
         /*
-        Flip a coin. If even then we apply damage to the Boss. If tails then we get the smack down
+        Flip a coin. If even, then we apply damage to the Boss. If tails, then we get the smack down
          0: heads
          1: tails
         */
@@ -99,7 +99,7 @@
     if (self.character.health <= 0) {
         //lock out the UI. Only allow reset of game
         [self lockTheUIDown];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Death" message:@"You have died. Reset to play again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Death" message:@"You have died. Damn you Pirate Boss! Reset to get your revenge." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
     

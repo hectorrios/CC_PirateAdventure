@@ -82,7 +82,7 @@
      */
     PAArmor *steelLiver = [[PAArmor alloc] init];
     steelLiver.name = @"Steel Liver";
-    steelLiver.health = 60;
+    steelLiver.health = 50;
     
     [self configureTile:[colTwo objectAtIndex:2]
               WithStory:@"Well Well, lookie here. While trying to find that Brothel you heard about in the pub you've stumbled across a blacksmith. This blacksmith specializes in steel livers which you're going to need after all those pints."
@@ -107,7 +107,7 @@
      */
     
     [self configureTile:[colThree objectAtIndex:1]
-              WithStory:@"Jackpot! After weeks at sea we finally hit the mother-load. We're thinking Cap'n could get himself a new hat with that treasure money."
+              WithStory:@"Jackpot! After weeks at sea we finally hit the mother-load. We're thinking Cap'n could get himself a new hat with some of that treasure money."
          AndImageString:@"PirateTreasure.jpeg" AndActionName:@"Buy a new hat."
               AndWeapon:nil AndArmor:nil OrHealthEffect:3];
     
@@ -116,7 +116,7 @@
      */
     
     [self configureTile:[colThree objectAtIndex:2]
-              WithStory:@"You've finally tracked him down. It's time to go mano a mano with this turkey!"
+              WithStory:@"You've finally tracked him down. The Pirate Boss! He's doesn't look so tough. It's time to go mano a mano with this turkey!"
          AndImageString:@"PirateBoss.jpeg" AndActionName:@"Fight"
               AndWeapon:nil AndArmor:nil OrHealthEffect:0];
     
@@ -138,7 +138,7 @@
     rayGuns.damage = 200;
     
     [self configureTile:[colFour objectAtIndex:1]
-              WithStory:@"Baton down hatches and line up the canons. It's a GO time! You have a 50/50 shot of making out alive. Or ... you could take our laser cannons and make increase your chances to 100% making it out alive. What do you think?"
+              WithStory:@"Baton down hatches and line up the canons. It's GO time! You have a 50/50 shot of making it out alive. Or ... you could take these spiffy laser cannons and increase your chances of making it out alive to 100%. Please don't tell me that your seriously thinking it over!"
          AndImageString:@"PirateShipBattle.jpeg" AndActionName:@"Fire canons"
               AndWeapon:rayGuns AndArmor:nil OrHealthEffect:0];
     
