@@ -24,9 +24,6 @@
     
     self.factory = [[PATileFactory alloc] init];
     
-    //grab the tiles
-    self.tiles = [self.factory tiles];
-    
     [self resetGame];
 }
 
@@ -193,6 +190,9 @@
 
 -(void)resetGame {
     
+    //grab the tiles
+    self.tiles = [self.factory tiles];
+
     //Define the initial position
     self.currentPosition = CGPointMake(0, 0);
     
