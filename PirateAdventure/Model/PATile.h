@@ -18,5 +18,6 @@
 @property (nonatomic, strong) PAWeapon *weapon;
 @property (nonatomic, strong) PAArmor *armor;
 @property (nonatomic) int healthEffect;
+@property (nonatomic) BOOL actionRequired;
 
 @end

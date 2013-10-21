@@ -11,8 +11,11 @@
 #import "PATileFactory.h"
 
 @interface PAViewController ()
+
 @property (nonatomic, strong) NSArray *tiles;
 @property (nonatomic, strong) PATileFactory *factory;
+@property (nonatomic) BOOL tileLocked;
+
 @end
 
 @implementation PAViewController
@@ -36,36 +39,44 @@
 #pragma mark -- IBAction methods
 
 - (IBAction)moveNorth:(UIButton *)sender {
-    //update the current position
-    self.currentPosition = CGPointMake(self.currentPosition.x, self.currentPosition.y + 1);
     
-    [self doMove];
+    //update the current position
+//    self.currentPosition = CGPointMake(self.currentPosition.x, self.currentPosition.y + 1);
+    
+    [self doMoveFromTile:[self retrieveTheCurrentTile]
+            toCoordinate:CGPointMake(self.currentPosition.x, self.currentPosition.y + 1)];
 }
 
 - (IBAction)moveSouth:(UIButton *)sender {
     //update the current position
-    self.currentPosition = CGPointMake(self.currentPosition.x, self.currentPosition.y - 1);
+    //self.currentPosition = CGPointMake(self.currentPosition.x, self.currentPosition.y - 1);
     
-    [self doMove];
+    [self doMoveFromTile:[self retrieveTheCurrentTile]
+            toCoordinate:CGPointMake(self.currentPosition.x, self.currentPosition.y - 1)];
 }
 
 - (IBAction)moveEast:(UIButton *)sender {
     //update the current position
-    self.currentPosition = CGPointMake(self.currentPosition.x + 1, self.currentPosition.y);
+//    self.currentPosition = CGPointMake(self.currentPosition.x + 1, self.currentPosition.y);
     
-    [self doMove];
+    [self doMoveFromTile:[self retrieveTheCurrentTile]
+            toCoordinate:CGPointMake(self.currentPosition.x + 1, self.currentPosition.y)];
 }
 
 - (IBAction)moveWest:(UIButton *)sender {
     //update the current position
-    self.currentPosition = CGPointMake(self.currentPosition.x - 1, self.currentPosition.y);
+//    self.currentPosition = CGPointMake(self.currentPosition.x - 1, self.currentPosition.y);
     
-    [self doMove];
+    [self doMoveFromTile:[self retrieveTheCurrentTile]
+            toCoordinate:CGPointMake(self.currentPosition.x - 1, self.currentPosition.y)];
 }
 
 - (IBAction)actionButtonPressed:(UIButton *)sender {
     //Grab current Tile
-    PATile *currentTile = [[self.tiles objectAtIndex:self.currentPosition.x] objectAtIndex:self.currentPosition.y];
+    PATile *currentTile = [self retrieveTheCurrentTile];
+    
+    //unlock the current Tile
+    self.tileLocked = NO;
     
     if (currentTile.armor != nil) {
         self.character.health = self.character.health - self.character.armor.health + currentTile.armor.health;
@@ -179,13 +190,23 @@
     }
 }
 
--(void) doMove {
-    //check to see if we need to disable/enable any of the buttons
-    [self calculateButtonVisibility];
+-(void) doMoveFromTile:(PATile *)currentTile toCoordinate:(CGPoint)coord {
     
-    //Grab tile
-    PATile *currentTile = [[self.tiles objectAtIndex:self.currentPosition.x] objectAtIndex:self.currentPosition.y];
-    [self updateUIForTile:currentTile];
+    //check to see if the tileLocked property is YES
+    if (self.tileLocked == YES) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Action Required" message:@"Woah there Cap'n! You need to do some clicking before you start moving." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    } else {
+        
+        //set the currentPosition to the new coordinate
+        self.currentPosition = coord;
+        
+        //check to see if we need to disable/enable any of the buttons
+        [self calculateButtonVisibility];
+        
+        [self updateUIForTile:[self retrieveTheCurrentTile]];
+    }
+
 }
 
 -(void)resetGame {
@@ -196,8 +217,11 @@
     //Define the initial position
     self.currentPosition = CGPointMake(0, 0);
     
-    //set up the starting tile and
-    [self doMove];
+    //set up the starting tile.
+    [self updateUIForTile:[self retrieveTheCurrentTile]];
+    
+    //Check if the tile requires action to be taken
+    self.tileLocked = [self retrieveTheCurrentTile].actionRequired;
     
     //init the character
     self.character = nil;
@@ -211,6 +235,28 @@
     [self updateCharacterUI];
     
     
+}
+
+/**
+ Check to see if the current tile requires that the action be
+ taken. If YES, then return YES and throw up an alert saying that an action is needed
+ **/
+//-(BOOL)isActionRequired {
+//    PATile *currentTile  = [self retrieveTheCurrentTile];
+//    
+//    if (currentTile.actionRequired) {
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Action Required" message:@"Woah there Cap'n! You need to do some clicking before you start moving." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        [alertView show];
+//    }
+//    return currentTile.actionRequired;
+//}
+
+/**
+ Covenience method to retrieve the current tile
+ **/
+-(PATile *)retrieveTheCurrentTile {
+    PATile *currentTile = [[self.tiles objectAtIndex:self.currentPosition.x] objectAtIndex:self.currentPosition.y];
+    return currentTile;
 }
 
 @end
